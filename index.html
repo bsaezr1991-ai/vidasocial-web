@@ -12,10 +12,17 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: radial-gradient(circle at top, #102B66 0%, #050F2D 45%, #031024 100%);
+      background:
+        radial-gradient(circle at top left, rgba(45,127,249,.28), transparent 35%),
+        radial-gradient(circle at top right, rgba(255,63,164,.22), transparent 30%),
+        linear-gradient(180deg, #050F2D 0%, #071B3D 45%, #031024 100%);
       color: white;
       min-height: 100vh;
       text-align: center;
@@ -24,16 +31,53 @@
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 34px 22px 42px;
+      padding: 28px 22px 44px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .4px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      opacity: .9;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding-top: 12px;
     }
 
     .logo-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 42px;
+      width: 170px;
+      height: 170px;
+      border-radius: 40px;
       object-fit: cover;
       box-shadow: 0 18px 55px rgba(0,0,0,.5);
-      margin-top: 24px;
       animation: float 4s ease-in-out infinite;
     }
 
@@ -54,8 +98,9 @@
     }
 
     h1 {
-      font-size: 52px;
+      font-size: 56px;
       margin: 8px 0 10px;
+      line-height: 1.05;
     }
 
     .subtitle {
@@ -81,7 +126,7 @@
     }
 
     .hero-banner {
-      margin-top: 24px;
+      margin-top: 30px;
       width: 100%;
       max-width: 1040px;
       border-radius: 28px;
@@ -89,9 +134,92 @@
       border: 1px solid rgba(255,255,255,.14);
     }
 
-    footer {
+    .section-title {
+      margin-top: 56px;
+      margin-bottom: 14px;
+      font-size: 34px;
+    }
+
+    .section-text {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 19px;
+      line-height: 1.6;
+      opacity: .88;
+    }
+
+    .features {
       margin-top: 36px;
-      padding-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      padding: 26px 18px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 16px 45px rgba(0,0,0,.22);
+    }
+
+    .card h3 {
+      margin: 12px 0 8px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.45;
+      opacity: .85;
+    }
+
+    .icon {
+      font-size: 36px;
+    }
+        .info-box {
+      margin: 54px auto 0;
+      max-width: 920px;
+      padding: 30px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(45,127,249,.16), rgba(255,63,164,.12));
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: 0 18px 55px rgba(0,0,0,.25);
+    }
+
+    .info-box h2 {
+      margin: 0 0 12px;
+      font-size: 30px;
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: .9;
+    }
+
+    .soon {
+      margin-top: 46px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .soon-item {
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      font-size: 15px;
+      opacity: .92;
+    }
+
+    footer {
+      margin-top: 54px;
+      padding-top: 26px;
       border-top: 1px solid rgba(255,255,255,.12);
       font-size: 14px;
       opacity: .9;
@@ -108,9 +236,17 @@
       opacity: .65;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .soon {
+        grid-template-columns: 1fr;
+      }
+
       h1 {
-        font-size: 42px;
+        font-size: 44px;
       }
 
       .subtitle {
@@ -118,18 +254,34 @@
       }
 
       .logo-img {
-        width: 150px;
-        height: 150px;
+        width: 145px;
+        height: 145px;
+      }
+
+      .nav {
+        display: none;
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 540px) {
       .page {
-        padding: 24px 16px 36px;
+        padding: 22px 16px 36px;
+      }
+
+      .brand span {
+        font-size: 15px;
       }
 
       h1 {
-        font-size: 36px;
+        font-size: 38px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
       }
 
       .hero-banner {
@@ -146,22 +298,86 @@
 
 <body>
   <main class="page">
-    <img class="logo-img" src="./logo-vida-social.jpeg" alt="Logo Vida Social">
+    <header class="topbar">
+      <div class="brand">
+        <img src="./logo-vida-social.jpeg" alt="Logo Vida Social">
+        <span>Vida Social</span>
+      </div>
 
-    <p class="coming">Próximamente en Android</p>
+      <nav class="nav">
+        <a href="#funciones">Funciones</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="mailto:soporte@vidasocial.app">Soporte</a>
+      </nav>
+    </header>
 
-    <h1>Vida Social</h1>
+    <section class="hero">
+      <img class="logo-img" src="./logo-vida-social.jpeg" alt="Logo Vida Social">
 
-    <p class="subtitle">
-      Conecta con personas cerca de ti y de todo el país, participa en tu comunidad
-      y descubre lo que ocurre en tu comuna.
-    </p>
+      <p class="coming">Próximamente en Android</p>
 
-    <a class="button" href="javascript:void(0)">
-      Disponible próximamente en Google Play
-    </a>
+      <h1>Vida Social</h1>
 
-    <img class="hero-banner" src="./portada-vida-social.jpeg" alt="Portada Vida Social">
+      <p class="subtitle">
+        Conecta con personas cerca de ti y de todo el país, participa en tu comunidad
+        y descubre lo que ocurre en tu comuna.
+      </p>
+
+      <a class="button" href="javascript:void(0)">
+        Disponible próximamente en Google Play
+      </a>
+
+      <img class="hero-banner" src="./portada-vida-social.jpeg" alt="Portada Vida Social">
+    </section>
+
+    <section id="funciones">
+      <h2 class="section-title">Funciones principales</h2>
+      <p class="section-text">
+        Vida Social combina comunidad, interacción y progreso para crear una experiencia social local y entretenida.
+      </p>
+
+      <div class="features">
+        <div class="card">
+          <div class="icon">💬</div>
+          <h3>Chats comunales</h3>
+          <p>Conversa con personas de tu comuna y participa en conversaciones locales.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📸</div>
+          <h3>Álbum de fotos</h3>
+          <p>Comparte momentos, comenta fotos y descubre publicaciones de otros usuarios.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⭐</div>
+          <h3>Niveles y medallas</h3>
+          <p>Sube de nivel, gana medallas y destaca dentro de la comunidad.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏆</div>
+          <h3>Ranking social</h3>
+          <p>Participa activamente y mejora tu posición dentro del ranking.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comunidad" class="info-box">
+      <h2>Una red social pensada para tu comuna</h2>
+      <p>
+        Vida Social busca conectar personas de forma cercana, ordenada y segura.
+        Cada usuario puede participar en su comunidad, compartir fotografías,
+        descubrir nuevas personas y formar parte de una experiencia social con niveles,
+        recompensas y futuras funciones exclusivas.
+      </p>
+    </section>
+
+    <section class="soon">
+      <div class="soon-item">💎 Premium y Premium Plus</div>
+      <div class="soon-item">🪙 Bits de Uso y recompensas</div>
+      <div class="soon-item">✨ Próximas funciones exclusivas</div>
+    </section>
 
     <footer>
       <a href="#">Política de privacidad</a>
