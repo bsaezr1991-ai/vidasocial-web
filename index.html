@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Vida Social</title>
   <meta name="description" content="Vida Social es una app para conectar con personas cerca de ti, participar en tu comunidad y descubrir lo que ocurre en tu comuna." />
 
@@ -21,9 +22,9 @@
     }
 
     .page {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 38px 22px 50px;
+      padding: 34px 22px 42px;
     }
 
     .logo-img {
@@ -32,16 +33,33 @@
       border-radius: 42px;
       object-fit: cover;
       box-shadow: 0 18px 55px rgba(0,0,0,.5);
-      margin-top: 35px;
+      margin-top: 24px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    .coming {
+      color: #7DB8FF;
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-weight: bold;
     }
 
     h1 {
       font-size: 52px;
-      margin: 22px 0 10px;
+      margin: 8px 0 10px;
     }
 
     .subtitle {
-      max-width: 820px;
+      max-width: 850px;
       margin: 0 auto;
       font-size: 23px;
       line-height: 1.5;
@@ -50,61 +68,30 @@
 
     .button {
       display: inline-block;
-      margin-top: 34px;
-      padding: 17px 34px;
+      margin-top: 28px;
+      padding: 14px 30px;
       background: linear-gradient(90deg, #2D7FF9, #5B5CFF);
       color: white;
       text-decoration: none;
-      border-radius: 16px;
-      font-size: 18px;
+      border-radius: 15px;
+      font-size: 17px;
       font-weight: bold;
       box-shadow: 0 14px 35px rgba(45,127,249,.35);
       cursor: default;
     }
 
     .hero-banner {
-      margin-top: 46px;
+      margin-top: 24px;
       width: 100%;
-      max-width: 980px;
+      max-width: 1040px;
       border-radius: 28px;
       box-shadow: 0 26px 80px rgba(0,0,0,.55);
       border: 1px solid rgba(255,255,255,.14);
     }
 
-    .features {
-      margin-top: 54px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 20px;
-      padding: 24px 18px;
-      backdrop-filter: blur(8px);
-    }
-
-    .card h3 {
-      margin: 10px 0 8px;
-      font-size: 20px;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.45;
-      opacity: .85;
-    }
-
-    .icon {
-      font-size: 34px;
-    }
-
     footer {
-      margin-top: 54px;
-      padding-top: 28px;
+      margin-top: 36px;
+      padding-top: 24px;
       border-top: 1px solid rgba(255,255,255,.12);
       font-size: 14px;
       opacity: .9;
@@ -122,10 +109,6 @@
     }
 
     @media (max-width: 800px) {
-      .features {
-        grid-template-columns: 1fr 1fr;
-      }
-
       h1 {
         font-size: 42px;
       }
@@ -141,12 +124,8 @@
     }
 
     @media (max-width: 520px) {
-      .features {
-        grid-template-columns: 1fr;
-      }
-
       .page {
-        padding: 24px 16px 40px;
+        padding: 24px 16px 36px;
       }
 
       h1 {
@@ -169,6 +148,8 @@
   <main class="page">
     <img class="logo-img" src="./logo-vida-social.jpeg" alt="Logo Vida Social">
 
+    <p class="coming">Próximamente en Android</p>
+
     <h1>Vida Social</h1>
 
     <p class="subtitle">
@@ -181,32 +162,6 @@
     </a>
 
     <img class="hero-banner" src="./portada-vida-social.jpeg" alt="Portada Vida Social">
-
-    <section class="features">
-      <div class="card">
-        <div class="icon">💬</div>
-        <h3>Chats comunales</h3>
-        <p>Conversa con personas de tu comuna y participa en tu comunidad local.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">📸</div>
-        <h3>Álbum de fotos</h3>
-        <p>Comparte momentos, reacciona y comenta fotografías dentro de la app.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">⭐</div>
-        <h3>Niveles y medallas</h3>
-        <p>Sube de nivel, desbloquea logros y destaca dentro de Vida Social.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🏆</div>
-        <h3>Ranking social</h3>
-        <p>Participa, progresa y compite sanamente dentro de tu comunidad.</p>
-      </div>
-    </section>
 
     <footer>
       <a href="#">Política de privacidad</a>
