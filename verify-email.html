@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#050F2D" />
+  <title>Cuenta verificada | Vida Social</title>
+  <link rel="icon" href="./logo-vida-social.jpeg" type="image/jpeg" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #f8fafc;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(45,127,249,.30), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(255,63,164,.22), transparent 34%),
+        linear-gradient(180deg, #050F2D 0%, #071B3D 48%, #031024 100%);
+    }
+    main {
+      width: min(100%, 460px);
+      padding: 38px 28px;
+      text-align: center;
+      border: 1px solid rgba(147, 197, 253, .28);
+      border-radius: 24px;
+      background: rgba(10, 29, 65, .78);
+      box-shadow: 0 26px 70px rgba(0, 0, 0, .32);
+    }
+    .logo {
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 0 0 5px rgba(96,165,250,.16);
+    }
+    .check {
+      width: 52px;
+      height: 52px;
+      margin: 24px auto 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, .18);
+      color: #86efac;
+      font-size: 30px;
+      font-weight: 800;
+    }
+    h1 { margin: 0; font-size: 26px; }
+    p { margin: 12px 0 0; color: #cbd5e1; font-size: 16px; line-height: 1.55; }
+    .status { margin-top: 20px; color: #93c5fd; font-size: 14px; }
+    .button {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 13px 20px;
+      border: 0;
+      border-radius: 12px;
+      background: #2563eb;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .hint { margin-top: 18px; font-size: 13px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="./logo-vida-social.jpeg" alt="Vida Social" />
+    <div class="check" aria-hidden="true">✓</div>
+    <h1>Tu correo fue verificado</h1>
+    <p>La cuenta está lista. Abriremos Vida Social para que puedas continuar.</p>
+    <p id="status" class="status">Abriendo la aplicación…</p>
+    <a id="open-app" class="button" href="vidasocial://auth-callback">Abrir Vida Social</a>
+    <p class="hint">Si la aplicación no se abre, usa el botón después de instalar o actualizar Vida Social.</p>
+  </main>
+  <script>
+    (function () {
+      var suffix = window.location.search + window.location.hash;
+      var appUrl = 'vidasocial://auth-callback' + suffix;
+      var link = document.getElementById('open-app');
+      var status = document.getElementById('status');
+      link.href = appUrl;
+
+      window.setTimeout(function () {
+        window.location.href = appUrl;
+        window.setTimeout(function () {
+          status.textContent = 'Si no se abrió automáticamente, toca “Abrir Vida Social”.';
+        }, 1800);
+      }, 900);
+    })();
+  </script>
+</body>
+</html>
